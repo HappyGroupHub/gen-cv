@@ -23,7 +23,7 @@ let IceServerCredential
 const TalkingAvatarCharacter = "lori"
 const TalkingAvatarStyle = "skirt"
 
-supported_languages = ["en-US", "de-DE", "zh-CN", "ar-AE"] // The language detection engine supports a maximum of 4 languages
+supported_languages = ["en-US", "de-DE", "zh-TW", "ar-AE"] // The language detection engine supports a maximum of 4 languages
 
 let token
 
@@ -211,9 +211,9 @@ window.startSession = () => {
 }
 
 async function greeting() {
-  addToConversationHistory("Hello, my name is Lora. How can I help you?", "light")
+  addToConversationHistory("你好! 請問有什麼可以協助您的嗎？", "light")
 
-  let spokenText = "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='https://www.w3.org/2001/mstts' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' name='en-US-JennyNeural'>Hello, my name is Lisa. How can I help you?</voice></speak>"
+  let spokenText = "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='https://www.w3.org/2001/mstts' xml:lang='zh-TW'><voice xml:lang='zh-TW' xml:gender='Female' name='zh-TW-HsiaoChenNeural'>你好! 請問有什麼可以協助您的嗎？</voice></speak>"
   avatarSynthesizer.speakSsmlAsync(spokenText, (result) => {
     if (result.reason === SpeechSDK.ResultReason.SynthesizingAudioCompleted) {
       console.log("Speech synthesized to speaker for text [ " + spokenText + " ]. Result ID: " + result.resultId)
